@@ -45,18 +45,18 @@ public void OnPluginStart()
 {
 	CreateConVar("adjs_version", ADJS_VERSION, ADJS_NAME, FCVAR_NOTIFY|FCVAR_DONTRECORD);
 
-	g_cJumpEnable = CreateConVar("anti_jump_enable", "1", "Anti jump enable = 1; disable = 0", _, true, 0.0, true, 1.0);
+	g_cJumpEnable = CreateConVar("anti_jump_enable", "0", "Anti jump enable = 1; disable = 0", _, true, 0.0, true, 1.0);
 	g_cJumpPerma = CreateConVar("anti_jump_perma", "0", "If anti jump should be permanent enabled set this to 1", _, true, 0.0, true, 1.0);
-	g_cAllowJumps = CreateConVar("anti_jump_count", "3", "After how many jumps, jumping is blocked for X (anti_jump_time) seconds?");
+	g_cAllowJumps = CreateConVar("anti_jump_count", "0", "After how many jumps, jumping is blocked for X (anti_jump_time) seconds?");
 	g_cRestrictJump = CreateConVar("anti_jump_time", "3.0", "Set jump block time in seconds");
 	g_cResetJumps = CreateConVar("anti_jump_reset", "5.0", "After how many seconds jumps will reset to zero, if anti_jump_count were not reached?");
-	g_cJumpTeam = CreateConVar("anti_jump_team", "1", "Which team should not be allowed to jump? 0 - Disables; 1 - Both; 2 - Terrorist; 3 - Counter-Terrorist");
+	g_cJumpTeam = CreateConVar("anti_jump_team", "0", "Which team should not be allowed to jump? 0 - Disables; 1 - Both; 2 - Terrorist; 3 - Counter-Terrorist");
 
 	g_cDuckEnable = CreateConVar("anti_duck_enable", "1", "Anti duck enable = 1; disable = 0", _, true, 0.0, true, 1.0);
-	g_cDuckPerma = CreateConVar("anti_duck_perma", "0", "If anti duck should be permanent enabled set this to 1", _, true, 0.0, true, 1.0);
-	g_cAllowDuck = CreateConVar("anti_duck_count", "3", "After how many ducks, duck is blocked for X (anti_duck_time) seconds?");
-	g_cRestrictDuck = CreateConVar("anti_duck_time", "3.0", "Set duck block time in seconds");
-	g_cResetDuck = CreateConVar("anti_duck_reset", "3.0", "After how many seconds ducks will reset to zero, if anti_duck_count were not reached?");
+	g_cDuckPerma = CreateConVar("anti_duck_perma", "1", "If anti duck should be permanent enabled set this to 1", _, true, 0.0, true, 1.0);
+	g_cAllowDuck = CreateConVar("anti_duck_count", "0", "After how many ducks, duck is blocked for X (anti_duck_time) seconds?");
+	g_cRestrictDuck = CreateConVar("anti_duck_time", "0.0", "Set duck block time in seconds");
+	g_cResetDuck = CreateConVar("anti_duck_reset", "0.0", "After how many seconds ducks will reset to zero, if anti_duck_count were not reached?");
 	g_cDuckTeam = CreateConVar("anti_duck_team", "1", "Which team should not be allowed to duck? 0 - Disables; 1 - Both; 2 - Terrorist; 3 - Counter-Terrorist");
 
 	AutoExecConfig();

@@ -12,7 +12,7 @@ matrix:
 
 install:
   - ps: Invoke-WebRequest "https://www.sourcemod.net/latest.php?version=$env:SOURCEMOD&os=windows" -OutFile "sourcemod-$env:SOURCEMOD-windows.zip"
-  - ps: Expand-Archive -Path "sourcemod-$env:SOURCEMOD-windows.zip" -DestinationPath "game"
+  - ps: Expand-Archive -Path "sourcemod-$env:SOURCEMOD-windows.zip" -DestinationPath "./"
   - ps: cd addons\sourcemod\scripting\include\
   - ps: Invoke-WebRequest "https://bitbucket.org/GoD_Tony/updater/raw/53ebb3e27e5a43bc46dc52dc0de76ac2fb48cd9e/include/updater.inc" -OutFile "updater.inc"
   - ps: cd ..
@@ -24,9 +24,9 @@ test_script:
 
 after_test:
   - cmd: cd %APPVEYOR_BUILD_FOLDER%
-  - cmd: 7z a anti.plugin-only.zip %APPVEYOR_BUILD_FOLDER%\game\addons\sourcemod\scripting\*.smx
-  - cmd: 7z a anti.plugin-only.tar %APPVEYOR_BUILD_FOLDER%\game\addons\sourcemod\scripting\*.smx
-  - cmd: 7z a anti.plugin-only.tar.gz sourcebans-pp.plugin-only.tar
+  - cmd: 7z a anti.plugin-only.zip %APPVEYOR_BUILD_FOLDER%\addons\sourcemod\scripting\*.smx
+  - cmd: 7z a anti.plugin-only.tar %APPVEYOR_BUILD_FOLDER%\addons\sourcemod\scripting\*.smx
+  - cmd: 7z a anti.plugin-only.tar.gz anti.plugin-only.tar
   
 artifacts:
   - path: anti.plugin-only.zip

@@ -8,11 +8,11 @@ env:
   - SOURCEMOD=1.10
 
 before_script:
-  - FILE="sourcemod-$SOURCEMOD-linux.tar.gz"
-  - wget http://www.gsptalk.com/mirror/sourcemod/$FILE
-  - tar -xzf $FILE
-  - chmod +rx addons/sourcemod/scripting/spcomp
+  - wget "http://www.sourcemod.net/latest.php?version=$SOURCEMOD&os=linux" -O game/sourcemod-$SOURCEMOD-linux.tar.gz
+  - tar -xzf sourcemod-$SOURCEMOD-linux.tar.gz
   - cd addons/sourcemod/scripting/
+  - wget https://bitbucket.org/GoD_Tony/updater/raw/53ebb3e27e5a43bc46dc52dc0de76ac2fb48cd9e/include/updater.inc -O include/updater.inc
+  - chmod +x spcomp
 
 script:
   - ./spcomp antiduckjumpspam.sp
@@ -20,6 +20,6 @@ script:
 notifications:
   email: 
     recipients:
-      - webmaster@bara.in
+      - michael@darksilent.de
     on_success: always
     on_failure: always
